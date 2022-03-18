@@ -1,0 +1,146 @@
+############################################################
+Contract (Solidity)
+############################################################
+Find and Replace Script - mod.sh
+
+Replace with your own details
+
+- Operator and Fund address
+XX_OpAddress
+XX_DevFundAddress
+
+- Migration:
+XX_GSHARESTIME			= Share start time
+XX_GSHARESPOOLTIME		= Reward pool start time
+XX_GENTIME				= Genesis pool start time
+XX_GLAMOURPAIR			= Token Pair address
+XX_ORACLETIME			= Oracle start time
+
+- JS to setup:
+XX_GLAMOURPAIR			= Token Pair address
+XX_GSHARESPAIR			= Share pair address
+XX_BONDTIME				= Boardroom start time
+XX_WAVAX				= swap lp address
+XX_USDC					= swap lq address
+
+
+============================================================
+MOD Command procedures
+============================================================
+-------------
+contracts
+-------------
+Edit mod.sh
+run mod.sh
+copy 1_initial_migration.js to migrate
+truffle migrate
+
+Edit mod.sh
+run mod.sh
+truffle exec setup1
+
+** create glamour/gshares liq. pair
+** Transfer gshares to genesis pool(if not done during migration)
+
+Edit mod.sh
+run mod.sh
+copy mig_oracle to 1_initial_migration.js
+truffle migrate
+
+Edit mod.sh
+run mod.sh
+truffle exec setup2
+
+Edit mod.sh
+run mod.sh
+truffle exec setupgen
+
+-------------
+Example
+-------------
+vi mod.sh
+./mod.sh
+cp 1_initial_migration.js ../../migrations/1_initial_migration.js
+
+truffle migrate --reset --network fuji
+
+truffle exec setup1.js --network fuji
+
+######## create glamour/gshares liq pair
+######## transfer glamour to genpool
+
+
+vi mod.sh
+./mod.sh
+cp mig_oracle.js ../../migrations/1_initial_migration.js
+
+truffle migrate --reset --network fuji
+
+
+vi mod.sh
+./mod.sh
+
+truffle exec setup2.js --network fuji
+
+truffle exec setupgen.js --network fuji
+
+
+
+============================================================
+Other Scripts
+============================================================
+alloc.sh alloc.js
+- Boardroom execute allocateSeigniorage every 6 hours
+
+Claim.js
+- Dev claim fund
+
+
+
+
+
+
+############################################################
+Front End (Web site)
+############################################################
+Find and Replace Scripts -
+moddeployjson.sh
+modeconfig.sh
+
+- deployment.mainnet json: 
+	Contract address
+
+- config.ts:	
+	ChainID,
+	Provider network, 
+	address of wftm(wavax), 
+	address of fusdt(usdc), 
+	address of USDT-FTM-LP(usdc-wavax),
+	address of WAVAX/USDC.e,
+	Token LP address, 
+	buylink,
+	Launch countdown time
+
+Edit the mod script. Some items above still require manual Find and Replace.
+
+-------------
+Example
+-------------
+
+vi modconfig.sh
+vi moddeployjson.sh
+./modconfig.sh
+./moddeployjson.sh
+cp config.ts ../../
+cp deployments.mainnet.json ../../tomb-finance/deployments/
+
+
+--------------------------
+Change ChainID for mainnet
+tombfinance.ts: 	testnet 43113  mainnet 43114 
+--------------------------
+
+
+
+
+
