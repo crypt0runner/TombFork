@@ -1,4 +1,4 @@
-# TombFork
+# Deploy your own TombFork
 
 Scripts and procedures to clone the Tomb Defi for your own projects.
 Both Contracts and Front-end script/procedures for TESTNET, but it should be similar for Mainnet.
