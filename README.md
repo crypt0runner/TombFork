@@ -1,8 +1,8 @@
 # TombFork
 
 Scripts and procedures to clone the Tomb Defi for your own projects.
-Both Contracts and Front-end script/procedures, for TESTNET.
+Both Contracts and Front-end script/procedures for TESTNET.
 
-The script has been used in Glamour Finace Project, based on AVAX.
+The script has been used in Glamour Finance Project, based on AVAX.
 
-Source code(contract/front-end) of Tomb Defi project is not provided.
+The Tomb Defi project's source code(contract/front-end) is not provided.
